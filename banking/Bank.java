@@ -8,7 +8,7 @@ import org.junit.runner.JUnitCore; // Test runner
 
 /**
  * @author wpollock
- *
+ * @edited JZabriskie
  */
 public class Bank {
     private final String NAME;
