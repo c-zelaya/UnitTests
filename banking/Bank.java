@@ -2,6 +2,9 @@ package banking;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import org.junit.*; // The various annotations
+import static org.junit.Assert.*; //AssertX methods
+import org.junit.runner.JUnitCore; // Test runner
 
 /**
  * @author wpollock
@@ -16,8 +19,16 @@ public class Bank {
      *
      * @param name Name of the bank
      */
+     
+    
     public Bank (String name) {
         this.NAME = "";  // Stub
+        
+        @Test
+        public void testBankName(){
+          assertEquals(Bank, this.NAME);
+
+        }
     }
 
     /** Starts up the Bank simulator
@@ -25,6 +36,12 @@ public class Bank {
      */
     public static void main (String[] args) {
         System.out.println("Hello from Bank");  // Stub
+        
+        @Test
+        public void testMain(){
+          assertEquals("", outContent.toString());
+
+        }
     }
 
     /**
@@ -32,13 +49,24 @@ public class Bank {
      */
     public  double getInsufficientFundsPenalty () {
         return insufficientFundsPenalty;
+        
+        @Test 
+        public void testInsufficientFundsPenalty(){
+            assertTrue(true);
+            }
     }
 
     /**
      * @param insufficientFundsPenalty the insufficientFundsPenalty to set
      */
+    @Test
     public void setInsufficientFundsPenalty (double insufficientFundsPenalty) {
-        // Stub
+        insufficientFundsPenalty = 0;// Stub
+       
+        @Test 
+        public void testSetInsufficientFundsPenalty(){
+            assertTrue( insufficientFundsPenalty > 0 );
+            }
     }
 
     /**
@@ -46,13 +74,23 @@ public class Bank {
      */
     public String getNAME () {
         return NAME;
+
+        @Test 
+        public void testGetNAME(){
+            assertTrue( true );
+            }
     }
 
     /** Adds a new bank account
      *
      */
     public void addAccountWizard () {
-        // Stub
+        BankAccount Account = new BankAccount()// Stub
+        
+        @Test
+        public void testAddAccountWizard(){
+            assertEquals(Account, BankAccount());
+       }
     }
 
     /** Generates a report of all current accounts, in account ID order
@@ -63,6 +101,12 @@ public class Bank {
     public SortedSet<Account> getAllAccounts () {
         // for each customer, get accounts and add to sorted set.
         return null;  //Stub
+
+        @Test
+        public void testGetAllAccounts(){
+            assertEquals(Account, BankAccount());
+       }
+
     }
 
     /** Add a new customer to the bank, using a GUI form
@@ -70,7 +114,7 @@ public class Bank {
      */
     public void addCustomerWizard () {
     }
-
+       
     /** Add a new customer to the bank.
      * @param lastName Customer's last (sur- or family) name
      * @param firstName Customer's first (or given) name
@@ -78,6 +122,12 @@ public class Bank {
      */
     public String addCustomer (String lastName, String firstName) {
         return null;  // Stub
+
+        @Test 
+        public void testAddCustomer("Bar", "Foo"){
+            Customer = "Bar" + "Foo";
+            assertFalse(Failed);
+        }
     }
 
     /** Deletes a customer from the bank.
@@ -86,6 +136,12 @@ public class Bank {
      */
     public void removeCustomer (String customerId) {
         // Stub
+        
+        @Test
+        public void testRemoveCustomer("Bar", "Foo"){
+            Customer = null;
+            assertFalse(Failed);
+        }
     }
 
     /** Generates a report of all current customers, in customer ID order
@@ -93,6 +149,13 @@ public class Bank {
      */
     public SortedSet<Customer> getAllCustomers () {
         return null;  // Stub
+
+        @Test
+        public void testGetAllCustomer(){
+        streamreader(Customer);
+        assertFalse(Failed);
+        
+        }
     }
 
     /** Get a Customer object, given a customer's ID
@@ -102,6 +165,13 @@ public class Bank {
      */
     public Customer getCustomer (String customerId) {
         return null;  // Stub
+
+        @Test
+        public void testgetCustomer(){
+        double customerId;
+        assertFalse(Failed);
+        
+        }
     }
 
     /** Get a List of Customer objects, given a customer's last and
@@ -114,6 +184,14 @@ public class Bank {
      */
     public List<Customer> getCustomer (String lastName, String firstName) {
         return null;  // Stub
+        @Test
+        public void testGetListCustomer(){
+            Until(EOF){
+                streamreader(Customers);
+                }
+        assertFalse(Failed);
+        
+        }
     }
 
     /** Return a List of a given customer's accounts (if any)
@@ -123,5 +201,15 @@ public class Bank {
      */
     public List<Account> getCustomersAccounts (String customerId) {
         return null;  // Stub
+        
+        @Test
+        public void getCustomersAccounts(){
+            Until(EOF){
+                double customerId;
+                }
+        assertFalse(Failed);
+        
+        }
+`   
     }
 }
