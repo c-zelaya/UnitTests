@@ -3,7 +3,9 @@ package banking;
 import java.time.*;
 import java.util.*;
 import java.util.stream.Collectors;
-
+import org.junit.*; 
+import static org.junit.Assert.*; 
+import org.junit.runner.JUnitCore; 
 /**
  *
  * @author wpollock
@@ -32,12 +34,45 @@ public abstract class Account implements Comparable<Account> {
         this.accountId = "";
         // Stub
     }
-
+    
+        @Test
+        public void testAccount() {
+            Account expectedAccount = new Account();
+            assertEquals(expectedAccount, Account());
+            }
+        
+        @Test
+        public void testCustomer() {
+            Account testAccount = new Account("Jane Doe", 100, "Checking Account");
+            String expectedName = "Jane Doe";
+            assertEquals(expectedName, this.customer);
+            }
+        
+        @Test
+        public void testInitialBalance() {
+            Account testAccount = new Account("Jane Doe", 100, "Checking Account");
+            double expectedBalance = 100;
+            assertEquals(expectedBalance, Account.initialBalance);
+            }
+        
+        @Test
+        public void accountDescription() {
+            Account testAccount = new Account("Jane Doe", 100, "Checking Account");
+            String expectedDescription = "Checking";
+            assertEquals(expectedDescription, Account.accountDescription);
+            }
+        
     /**
      * @param amount The amount to deposit
      */
     public abstract void deposit (double amount);
-
+    
+    //Test deposit method, should return amount deposited
+    @Test
+    public void testDeposit(){
+    double amount = 100;
+    assertEquals(100, amount);
+    }
     /**
      * If the account doesn't have sufficient funds for the specified
      * amount, an insufficient funds fee (penalty) is charged on the
@@ -45,7 +80,20 @@ public abstract class Account implements Comparable<Account> {
      * @param amount The amount to withdraw
      */
     public abstract void withdraw (double amount);
-
+     
+    @Test
+    public void testWithdraw(){
+    double amount = 100;
+    assertEquals(100, amount);
+    }
+    
+    @Test
+    public void testOverdraftPenalty(){
+        Account testAccount = new Account("Jane Doe", 100, "Checking Account");
+        double amount = 150;
+        assertTrue("Does customer incur overdraft fee?", amount > Account.initialBalance);
+    
+    }
     /** Transfer funds between two accounts of a single customer.
      *
      * @param fromAccount The source of the funds
@@ -56,7 +104,14 @@ public abstract class Account implements Comparable<Account> {
             double amount) {
         // Stub
     }
-
+    @Test
+    public void testTransfer() {
+    Account fromAccount = new Account("Jane Doe", 100, "Checking Account");
+    Account toAccount = new Account("Jane Doe", 100, "Savings Account");
+    Account.transfer(fromAccount, toAccount, balance);
+    assertEquals(fromAccount, balance);
+    assertEquals(toAccount, balance);
+    }
     /**
      * @return The description for this account
      */
@@ -84,7 +139,14 @@ public abstract class Account implements Comparable<Account> {
     public List<Transaction> getTransactions () {
         return null;  // Stub
     }
-
+        @Test
+        public void testGetTransactions(){
+        List<Transaction> expectedList = new ArrayList<Transaction>();
+        assertArrayEquals (expectedList, List<Transaction>);
+        
+        }
+`   
+    }
     /**
      * @param transactionId  The id of the transaction to search for
      * @return the matching transaction
@@ -93,7 +155,12 @@ public abstract class Account implements Comparable<Account> {
     public Transaction getTransaction (int transactionId) {
         return null;  // Stub
     }
-
+        @Test 
+        public void testGetTransaction(){
+            Transaction transaction = new Transaction();
+            int transactionID = 1;
+            assertEquals(1, Transaction.getTransaction());
+            }
     /**
      * @return Account's ID
      */
@@ -134,4 +201,11 @@ public abstract class Account implements Comparable<Account> {
     public String toString () {
         return null;  // Stub
     }
+    
+
+    
+    
+                    
+   
+    
 }
