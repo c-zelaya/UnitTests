@@ -1,9 +1,12 @@
 package banking;
 
 import java.time.*;
+import static org.junit.Assert.*;
+import org.junit.*
 
 /**
  * @author wpollock
+ * @edited by Helene Hoffman
  *
  */
 public class Transaction implements Comparable<Transaction> {
@@ -29,7 +32,88 @@ public class Transaction implements Comparable<Transaction> {
         this.timestamp = LocalDateTime.now();
         // Stub
     }
-
+    
+        //Tests creation of a new transaction
+        @Test
+        public void testTransaction() {
+            Transaction expectedTransaction = new Transaction (DEPOSIT, 100, "Check No. 123");
+            assertEquals(expectedTransaction, Transaction());
+            }
+        
+        //Tests transaction amount
+        @Test
+        public void testAmount() {
+            Transaction testTransaction = new Transaction (DEPOSIT, 100, "Check No. 123");
+            double expectedAmount = 100;
+            assertEquals(expectedAmount, this.amount);
+            }
+        
+        @Test
+        public void testAmountNegative() {
+            Transaction testTransaction = new Transaction (DEPOSIT, -100, "Check No. 123");
+            double negativeAmount = -100;
+            assertFalse("Is number positive?", negativeAmount > 0);
+            }
+        
+        //Tests account description string
+        @Test
+        public void accountDescription() {
+             Transaction testTransaction = new Transaction (DEPOSIT, 100, "Check No. 123");
+            String expectedDescription = "Check No. 123";
+            assertEquals(expectedDescription, this.description);
+            }
+        
+        //The following six methods test each type of transaction, as
+        //detailed in the transaction type class (DEPOSIT, WITHDRAWAL,
+        //INTEREST, CHECK, FEE, PENALTY, ADJUSTMENT)
+        @Test
+        public void testTypeDeposit() {
+            Transaction testTransaction = new Transaction (DEPOSIT, 100, "Check No. 123");
+            String expectedType = DEPOSIT;
+            assertEquals(expectedType, this.type);
+            }
+        
+        @Test
+        public void testTypeWithdrawal() {
+            Transaction testTransaction = new Transaction (WITHDRAWAL, 100, "Check No. 123");
+            String expectedType = WITHDRAWAL;
+            assertEquals(expectedType, this.type);
+            }
+        
+        @Test
+        public void testTypeInterest() {
+            Transaction testTransaction = new Transaction (INTEREST, 100, "Check No. 123");
+            String expectedType = INTEREST;
+            assertEquals(expectedType, this.type);
+            }
+        
+        @Test
+        public void testTypeCheck() {
+            Transaction testTransaction = new Transaction (CHECK, 100, "Check No. 123");
+            String expectedType = CHECK;
+            assertEquals(expectedType, this.type);
+            }
+        
+        @Test
+        public void testTypeFee() {
+            Transaction testTransaction = new Transaction (FEE, 100, "Check No. 123");
+            String expectedType = FEE;
+            assertEquals(expectedType, this.type);
+            }
+        
+        @Test
+        public void testTypePenalty() {
+            Transaction testTransaction = new Transaction (PENALTY, 100, "Check No. 123");
+            String expectedType = PENALTY;
+            assertEquals(expectedType, this.type);
+            }
+        
+        @Test
+        public void testTypeAdjustment() {
+            Transaction testTransaction = new Transaction (ADJUSTMENT, 100, "Check No. 123");
+            String expectedType = ADJUSTMENT;
+            assertEquals(expectedType, this.type);
+            }
     /**
      * @return the id
      */
