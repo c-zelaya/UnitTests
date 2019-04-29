@@ -1,6 +1,9 @@
 package banking;
 
 import java.util.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+import org.junit.runner.JUnitCore;
 
 /**
  * @author wpollock
@@ -28,6 +31,11 @@ public class Customer implements Comparable<Customer> {
         this.firstName = "";
         // Stub
     }
+    @Test
+    public void testCustomer(){
+      Customer expectedCustomer = new Customer();
+      assertEquals(expectedCustomer, Customer());
+    }
 
     /**
      * @return the bank
@@ -36,6 +44,12 @@ public class Customer implements Comparable<Customer> {
         return null;  // Stub
     }
 
+    @Test
+    public void testBank (){
+      assertEquals(null);
+}
+
+
     /** Getter for customer's ID
      * @return The customer's ID
      */
@@ -43,11 +57,20 @@ public class Customer implements Comparable<Customer> {
         return null;  // Stub
     }
 
+    @Test
+    public void testgetCustomerID(){
+      assertEquals(null);
+    }
     /** Getter for the customer's last name
      * @return The customer's last name
      */
     public String getLastName () {
         return null;  // Stub
+    }
+
+    @Test
+    public void testgetLastName(){
+      assertEquals(null);
     }
 
     /** Getter for the customer's first name
@@ -56,6 +79,10 @@ public class Customer implements Comparable<Customer> {
 
     public String getFirstName () {
         return null;  // Stub
+    }
+    @Test
+    public void testgetFirstName(){
+      assertEquals(null);
     }
 
     /** Returns a read-only SortedSet of the customer's active
@@ -67,6 +94,11 @@ public class Customer implements Comparable<Customer> {
     public SortedSet<Account> getCustomerAccounts () {
         return null;  // Stub
     }
+    @Test
+    public void testgetCustomerAccounts(){
+      assertEquals(null);
+    }
+
 
     /** Returns the total fees (including penalties) paid by this customer
      *  for year-to-date
@@ -77,11 +109,20 @@ public class Customer implements Comparable<Customer> {
         return 0.0;  // Stub
     }
 
+    @Test
+    public void testytdFees(){
+      assertEquals(double 0.0);
+    }
+
     /** Returns the total interest paid to this customer for year-to-date
      * @return YTD interest payed
      */
     public double ytdInterest () {
         return 0.0;  // Stub
+    }
+    @Test
+    public void testytdInterest(){
+      assertEquals(double 0.0);
     }
 
     /** Adds a new bank account
@@ -93,12 +134,21 @@ public class Customer implements Comparable<Customer> {
         return null;  // Stub
     }
 
+    @Test
+    public void testddSavingsAccount(){
+      assertEquals(null);
+    }
+
     /** Deletes a given account (in the real world, just marks it as defunct
      *  or something)
      * @param accountId the ID of the account to remove
      */
     public void removeAccount (String accountId) {
         // Stub
+    }
+    @Test
+    public void testremoveAccount(){
+
     }
 
     /** Find an account given an account ID
