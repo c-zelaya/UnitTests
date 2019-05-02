@@ -46,7 +46,11 @@ public class Customer implements Comparable<Customer> {
 
     @Test
     public void testBank (){
-      assertEquals(null);
+        Bank bank = new Bank();
+        bank.NAME = "Chase";
+        bank.customers[] = {(bank.NAME,customers)};
+        bank.insufficientFundsPenalty;
+        assertEquals("Chase",(bank.NAME,customers), 10, bank.Bank());
 }
 
 
@@ -59,7 +63,10 @@ public class Customer implements Comparable<Customer> {
 
     @Test
     public void testgetCustomerID(){
-      assertEquals(null);
+
+      Customer customer = new Customer();
+      customer.CustomerID = 2123;
+      assertEquals(2123, customer.getCustomerID());
     }
     /** Getter for the customer's last name
      * @return The customer's last name
@@ -70,7 +77,9 @@ public class Customer implements Comparable<Customer> {
 
     @Test
     public void testgetLastName(){
-      assertEquals(null);
+      getLastName gln = new getLastName();
+      gln.lastName = "Howard";
+      assertEquals("Howard", gln.getLastName());
     }
 
     /** Getter for the customer's first name
@@ -82,8 +91,9 @@ public class Customer implements Comparable<Customer> {
     }
     @Test
     public void testgetFirstName(){
-      assertEquals(null);
-    }
+      getFirstName gfn = new getFirstName();
+      gfn.FirstName = "Howard";
+      assertEquals("Frank", gfn.getFirstName());    }
 
     /** Returns a read-only SortedSet of the customer's active
      *  accounts (if any)
@@ -96,7 +106,9 @@ public class Customer implements Comparable<Customer> {
     }
     @Test
     public void testgetCustomerAccounts(){
-      assertEquals(null);
+
+
+      
     }
 
 
