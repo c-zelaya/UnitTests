@@ -106,11 +106,20 @@ public class Customer implements Comparable<Customer> {
     }
     @Test
     public void testgetCustomerAccounts(){
-
-
-      
+      int count = 0;
+    getCustomerAccounts.forEach(count++);
+    assertThat(count).isBetween(1, 400,000);
     }
+    }
+    @Test
+    public boolean testgetCustomerAccountsmutable(){
 
+    List account = new ArrayList(Account);
+    account.add("12323");
+    if( Arrays.asList(account).contains("12323") {
+      return true;
+      }
+    }
 
     /** Returns the total fees (including penalties) paid by this customer
      *  for year-to-date
@@ -148,7 +157,11 @@ public class Customer implements Comparable<Customer> {
 
     @Test
     public void testddSavingsAccount(){
-      assertEquals(null);
+      initBal = 250.00;
+      desc = "College Fund";
+      assertThat(desc).contains("College Fund");
+      assertThat(initBal).contains(250.00);
+
     }
 
     /** Deletes a given account (in the real world, just marks it as defunct
@@ -160,6 +173,8 @@ public class Customer implements Comparable<Customer> {
     }
     @Test
     public void testremoveAccount(){
+      accountId = 123224;
+      assertThat( Account.getMyItems().contains(accountId);
 
     }
 
@@ -172,6 +187,12 @@ public class Customer implements Comparable<Customer> {
         return null;  // Stub
     }
 
+    @Test
+    public void testgetAccount(){
+      accountId = 123224;
+      assertThat( Account.getMyItems().contains(accountId), accountId);
+
+    }
     @Override
     public String toString () {
         return "";  // Stub
